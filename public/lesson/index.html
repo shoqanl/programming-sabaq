@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="kk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python: Деректер типтері | 6-сынып | Раухат Ағай</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+      <div class="container header-content">
+        <div class="logo">
+          <span class="logo-icon">🐍</span>
+          <span class="logo-text">Python Сабағы</span>
+        </div>
+        <nav class="nav" id="nav">
+          <a href="#theory">📚 Теория</a>
+          <a href="#examples">💡 Мысалдар</a>
+          <a href="#tasks">✏️ Тапсырмалар</a>
+          <a href="#results">🏆 Нәтиже</a>
+        </nav>
+        <div class="teacher-badge">
+          <span class="teacher-avatar">👨‍🏫</span>
+          <span class="teacher-name">Раухат Ағай</span>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      </div>
+    </header>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero">
+      <div class="hero-shapes">
+        <div class="shape shape-1">int</div>
+        <div class="shape shape-2">str</div>
+        <div class="shape shape-3">float</div>
+        <div class="shape shape-4">bool</div>
+        <div class="shape shape-5">list</div>
+      </div>
+      <div class="container hero-content">
+        <div class="hero-badge">6-СЫНЫП • ИНФОРМАТИКА</div>
+        <h1 class="hero-title">
+          <span class="title-line">Деректер</span>
+          <span class="title-line highlight">типтері</span>
+        </h1>
+        <p class="hero-subtitle">
+          Python тілінде деректер типтерін үйреніп, бағдарламалау әлеміне саяхат
+          жасайық! 🚀
+        </p>
+        <div class="hero-buttons">
+          <a href="#theory" class="btn btn-primary">
+            <span>Бастайық!</span>
+            <span class="btn-icon">→</span>
+          </a>
+          <a href="#tasks" class="btn btn-secondary">Тапсырмаларға өту</a>
+        </div>
+      </div>
+      <div class="hero-mascot">
+        <div class="mascot-body">
+          <div class="mascot-eyes">
+            <div class="eye"></div>
+            <div class="eye"></div>
+          </div>
+          <div class="mascot-smile"></div>
+        </div>
+        <div class="mascot-speech">Сәлем! Мен Python жыланымын! 🐍</div>
+      </div>
+    </section>
+
+    <!-- ========== THEORY SECTION ========== -->
+    <section id="theory" class="theory">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">📚 ТЕОРИЯ</span>
+          <h2 class="section-title">Деректер типтері дегеніміз не?</h2>
+          <p class="section-subtitle">
+            Компьютер әртүрлі деректермен жұмыс істейді. Әр деректің өз типі
+            бар!
+          </p>
+        </div>
+
+        <div class="intro-card">
+          <div class="intro-icon">🤔</div>
+          <div class="intro-content">
+            <h3>Елестетіп көріңіз!</h3>
+            <p>
+              Сіздің бөлмеңізде әртүрлі заттар бар: кітаптар, ойыншықтар, сандар
+              жазылған карточкалар... Әр затты өз орнына қоясыз, солай ма?
+              <strong>Python-да да солай!</strong> Әр деректің өз "үйі" - типі
+              бар.
+            </p>
+          </div>
+        </div>
+
+        <div class="types-grid">
+          <!-- INTEGER -->
+          <div class="type-card" data-type="int">
+            <div class="type-header int">
+              <div class="type-icon">🔢</div>
+              <h3 class="type-name">int</h3>
+              <span class="type-badge">Бүтін сандар</span>
+            </div>
+            <div class="type-body">
+              <p class="type-description">
+                <strong>int (integer)</strong> - бүтін сандар типі. Бұл
+                сандардың бөлшек бөлігі жоқ!
+              </p>
+              <div class="type-examples">
+                <span class="example-label">Мысалдар:</span>
+                <div class="code-examples">
+                  <code>age = 12</code>
+                  <code>score = 100</code>
+                  <code>year = 2024</code>
+                </div>
+              </div>
+              <div class="real-life">
+                <span class="real-label">🌍 Өмірдегі мысал:</span>
+                <p>
+                  Сіздің жасыңыз, сыныбыңыздағы оқушылар саны, туған жылыңыз
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FLOAT -->
+          <div class="type-card" data-type="float">
+            <div class="type-header float">
+              <div class="type-icon">🎯</div>
+              <h3 class="type-name">float</h3>
+              <span class="type-badge">Бөлшек сандар</span>
+            </div>
+            <div class="type-body">
+              <p class="type-description">
+                <strong>float</strong> - нақты (бөлшек) сандар типі. Бұл
+                сандардың нүктеден кейінгі бөлігі бар!
+              </p>
+              <div class="type-examples">
+                <span class="example-label">Мысалдар:</span>
+                <div class="code-examples">
+                  <code>pi = 3.14</code>
+                  <code>temp = 36.6</code>
+                  <code>price = 999.99</code>
+                </div>
+              </div>
+              <div class="real-life">
+                <span class="real-label">🌍 Өмірдегі мысал:</span>
+                <p>Дене температурасы, тауар бағасы, пи саны</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- STRING -->
+          <div class="type-card" data-type="str">
+            <div class="type-header str">
+              <div class="type-icon">📝</div>
+              <h3 class="type-name">str</h3>
+              <span class="type-badge">Жолдар (мәтін)</span>
+            </div>
+            <div class="type-body">
+              <p class="type-description">
+                <strong>str (string)</strong> - жол типі. Тырнақшаға алынған кез
+                келген мәтін!
+              </p>
+              <div class="type-examples">
+                <span class="example-label">Мысалдар:</span>
+                <div class="code-examples">
+                  <code>name = "Алмас"</code>
+                  <code>city = 'Астана'</code>
+                  <code>msg = "Сәлем!"</code>
+                </div>
+              </div>
+              <div class="real-life">
+                <span class="real-label">🌍 Өмірдегі мысал:</span>
+                <p>Есіміңіз, қалаңыз, кез келген хабарлама</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOOLEAN -->
+          <div class="type-card" data-type="bool">
+            <div class="type-header bool">
+              <div class="type-icon">✅</div>
+              <h3 class="type-name">bool</h3>
+              <span class="type-badge">Логикалық тип</span>
+            </div>
+            <div class="type-body">
+              <p class="type-description">
+                <strong>bool (boolean)</strong> - логикалық тип. Тек 2 мән:
+                <span class="true-value">True</span> (иә) немесе
+                <span class="false-value">False</span> (жоқ)!
+              </p>
+              <div class="type-examples">
+                <span class="example-label">Мысалдар:</span>
+                <div class="code-examples">
+                  <code>is_student = True</code>
+                  <code>is_adult = False</code>
+                  <code>has_pet = True</code>
+                </div>
+              </div>
+              <div class="real-life">
+                <span class="real-label">🌍 Өмірдегі мысал:</span>
+                <p>Оқушысыз ба? Үй жануары бар ма? Ересек пе?</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- LIST -->
+          <div class="type-card" data-type="list">
+            <div class="type-header list">
+              <div class="type-icon">📋</div>
+              <h3 class="type-name">list</h3>
+              <span class="type-badge">Тізімдер</span>
+            </div>
+            <div class="type-body">
+              <p class="type-description">
+                <strong>list</strong> - тізім типі. Бір айнымалыда көп элементті
+                сақтауға болады!
+              </p>
+              <div class="type-examples">
+                <span class="example-label">Мысалдар:</span>
+                <div class="code-examples">
+                  <code>nums = [1, 2, 3]</code>
+                  <code>names = ["Али", "Әсел"]</code>
+                  <code>mixed = [1, "hi", True]</code>
+                </div>
+              </div>
+              <div class="real-life">
+                <span class="real-label">🌍 Өмірдегі мысал:</span>
+                <p>Сатып алу тізімі, достарыңыздың есімдері</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TYPE() Function -->
+        <div class="function-card">
+          <div class="function-header">
+            <span class="function-icon">🔍</span>
+            <h3>type() функциясы</h3>
+          </div>
+          <div class="function-body">
+            <p>
+              Кез келген деректің типін білу үшін <code>type()</code> функциясын
+              қолданамыз!
+            </p>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-dot red"></span>
+                <span class="code-dot yellow"></span>
+                <span class="code-dot green"></span>
+                <span class="code-filename">python</span>
+              </div>
+              <pre><code>print(type(10))        <span class="comment"># &lt;class 'int'&gt;</span>
+print(type(3.14))      <span class="comment"># &lt;class 'float'&gt;</span>
+print(type("Сәлем"))   <span class="comment"># &lt;class 'str'&gt;</span>
+print(type(True))      <span class="comment"># &lt;class 'bool'&gt;</span>
+print(type([1, 2, 3])) <span class="comment"># &lt;class 'list'&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== EXAMPLES SECTION ========== -->
+    <section id="examples" class="examples">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">💡 МЫСАЛДАР</span>
+          <h2 class="section-title">Интерактивті мысалдар</h2>
+          <p class="section-subtitle">Әр типті басып, көбірек біліңіз!</p>
+        </div>
+
+        <div class="interactive-demo">
+          <div class="demo-tabs">
+            <button class="demo-tab active" data-tab="int">🔢 int</button>
+            <button class="demo-tab" data-tab="float">🎯 float</button>
+            <button class="demo-tab" data-tab="str">📝 str</button>
+            <button class="demo-tab" data-tab="bool">✅ bool</button>
+            <button class="demo-tab" data-tab="list">📋 list</button>
+          </div>
+
+          <div class="demo-content">
+            <div class="demo-panel active" id="panel-int">
+              <div class="demo-code">
+                <h4>💻 Код:</h4>
+                <pre><code><span class="keyword">age</span> = <span class="number">12</span>
+<span class="keyword">students</span> = <span class="number">25</span>
+<span class="keyword">total</span> = age + students
+
+<span class="function">print</span>(<span class="string">"Жас:"</span>, age)
+<span class="function">print</span>(<span class="string">"Оқушылар:"</span>, students)
+<span class="function">print</span>(<span class="string">"Қосындысы:"</span>, total)
+<span class="function">print</span>(<span class="string">"Типі:"</span>, <span class="function">type</span>(age))</code></pre>
+              </div>
+              <div class="demo-output">
+                <h4>📤 Нәтиже:</h4>
+                <div class="output-box">
+                  <p>Жас: 12</p>
+                  <p>Оқушылар: 25</p>
+                  <p>Қосындысы: 37</p>
+                  <p>Типі: &lt;class 'int'&gt;</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="demo-panel" id="panel-float">
+              <div class="demo-code">
+                <h4>💻 Код:</h4>
+                <pre><code><span class="keyword">temp</span> = <span class="number">36.6</span>
+<span class="keyword">price</span> = <span class="number">1500.50</span>
+<span class="keyword">discount</span> = price * <span class="number">0.1</span>
+
+<span class="function">print</span>(<span class="string">"Температура:"</span>, temp)
+<span class="function">print</span>(<span class="string">"Баға:"</span>, price)
+<span class="function">print</span>(<span class="string">"Жеңілдік:"</span>, discount)
+<span class="function">print</span>(<span class="string">"Типі:"</span>, <span class="function">type</span>(temp))</code></pre>
+              </div>
+              <div class="demo-output">
+                <h4>📤 Нәтиже:</h4>
+                <div class="output-box">
+                  <p>Температура: 36.6</p>
+                  <p>Баға: 1500.5</p>
+                  <p>Жеңілдік: 150.05</p>
+                  <p>Типі: &lt;class 'float'&gt;</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="demo-panel" id="panel-str">
+              <div class="demo-code">
+                <h4>💻 Код:</h4>
+                <pre><code><span class="keyword">name</span> = <span class="string">"Алмас"</span>
+<span class="keyword">city</span> = <span class="string">"Астана"</span>
+<span class="keyword">greeting</span> = <span class="string">"Сәлем, "</span> + name + <span class="string">"!"</span>
+
+<span class="function">print</span>(greeting)
+<span class="function">print</span>(<span class="string">"Қала:"</span>, city)
+<span class="function">print</span>(<span class="string">"Есім ұзындығы:"</span>, <span class="function">len</span>(name))
+<span class="function">print</span>(<span class="string">"Типі:"</span>, <span class="function">type</span>(name))</code></pre>
+              </div>
+              <div class="demo-output">
+                <h4>📤 Нәтиже:</h4>
+                <div class="output-box">
+                  <p>Сәлем, Алмас!</p>
+                  <p>Қала: Астана</p>
+                  <p>Есім ұзындығы: 5</p>
+                  <p>Типі: &lt;class 'str'&gt;</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="demo-panel" id="panel-bool">
+              <div class="demo-code">
+                <h4>💻 Код:</h4>
+                <pre><code><span class="keyword">is_student</span> = <span class="boolean">True</span>
+<span class="keyword">is_adult</span> = <span class="boolean">False</span>
+<span class="keyword">age</span> = <span class="number">12</span>
+
+<span class="function">print</span>(<span class="string">"Оқушы ма:"</span>, is_student)
+<span class="function">print</span>(<span class="string">"Ересек пе:"</span>, is_adult)
+<span class="function">print</span>(<span class="string">"12 > 10:"</span>, age > <span class="number">10</span>)
+<span class="function">print</span>(<span class="string">"Типі:"</span>, <span class="function">type</span>(is_student))</code></pre>
+              </div>
+              <div class="demo-output">
+                <h4>📤 Нәтиже:</h4>
+                <div class="output-box">
+                  <p>Оқушы ма: True</p>
+                  <p>Ересек пе: False</p>
+                  <p>12 > 10: True</p>
+                  <p>Типі: &lt;class 'bool'&gt;</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="demo-panel" id="panel-list">
+              <div class="demo-code">
+                <h4>💻 Код:</h4>
+                <pre><code><span class="keyword">fruits</span> = [<span class="string">"алма"</span>, <span class="string">"банан"</span>, <span class="string">"апельсин"</span>]
+<span class="keyword">numbers</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]
+
+<span class="function">print</span>(<span class="string">"Жемістер:"</span>, fruits)
+<span class="function">print</span>(<span class="string">"Бірінші:"</span>, fruits[<span class="number">0</span>])
+<span class="function">print</span>(<span class="string">"Саны:"</span>, <span class="function">len</span>(fruits))
+<span class="function">print</span>(<span class="string">"Типі:"</span>, <span class="function">type</span>(fruits))</code></pre>
+              </div>
+              <div class="demo-output">
+                <h4>📤 Нәтиже:</h4>
+                <div class="output-box">
+                  <p>Жемістер: ['алма', 'банан', 'апельсин']</p>
+                  <p>Бірінші: алма</p>
+                  <p>Саны: 3</p>
+                  <p>Типі: &lt;class 'list'&gt;</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TASKS SECTION ========== -->
+    <section id="tasks" class="tasks">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">✏️ ТАПСЫРМАЛАР</span>
+          <h2 class="section-title">Білімді тексеру</h2>
+          <p class="section-subtitle">Барлығы 5 тапсырма • Жалпы 10 балл</p>
+        </div>
+
+        <div class="score-panel">
+          <div class="score-display">
+            <span class="score-label">Сіздің баллыңыз:</span>
+            <span class="score-value" id="totalScore">0</span>
+            <span class="score-max">/ 10</span>
+          </div>
+          <button class="btn btn-reset" id="resetBtn">🔄 Қайта бастау</button>
+        </div>
+
+        <div class="tasks-container">
+          <!-- TASK 1 -->
+          <div class="task-card" id="task1">
+            <div class="task-header">
+              <div class="task-number">1</div>
+              <div class="task-info">
+                <h3>Деректер типін анықтау</h3>
+                <span class="task-points">2 балл</span>
+              </div>
+              <div class="task-status" id="status1"></div>
+            </div>
+            <div class="task-body">
+              <p class="task-question">
+                Төмендегі мәндердің типтерін сәйкестендіріңіз:
+              </p>
+              <div class="matching-game">
+                <div class="match-column values">
+                  <div class="match-item" data-value="1">"Астана"</div>
+                  <div class="match-item" data-value="2">42</div>
+                  <div class="match-item" data-value="3">True</div>
+                  <div class="match-item" data-value="4">3.14</div>
+                </div>
+                <div class="match-column types">
+                  <div class="match-item" data-type="int">int</div>
+                  <div class="match-item" data-type="str">str</div>
+                  <div class="match-item" data-type="float">float</div>
+                  <div class="match-item" data-type="bool">bool</div>
+                </div>
+              </div>
+              <div class="task-answers" id="answers1">
+                <div class="answer-row">
+                  <span>"Астана" →</span>
+                  <select data-correct="str">
+                    <option value="">Таңдаңыз</option>
+                    <option value="int">int</option>
+                    <option value="str">str</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                  </select>
+                </div>
+                <div class="answer-row">
+                  <span>42 →</span>
+                  <select data-correct="int">
+                    <option value="">Таңдаңыз</option>
+                    <option value="int">int</option>
+                    <option value="str">str</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                  </select>
+                </div>
+                <div class="answer-row">
+                  <span>True →</span>
+                  <select data-correct="bool">
+                    <option value="">Таңдаңыз</option>
+                    <option value="int">int</option>
+                    <option value="str">str</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                  </select>
+                </div>
+                <div class="answer-row">
+                  <span>3.14 →</span>
+                  <select data-correct="float">
+                    <option value="">Таңдаңыз</option>
+                    <option value="int">int</option>
+                    <option value="str">str</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-check" onclick="checkTask1()">
+                Тексеру
+              </button>
+              <div class="task-feedback" id="feedback1"></div>
+            </div>
+            <div class="descriptor">
+              <h4>📋 Дескриптор:</h4>
+              <ul>
+                <li>4 типті дұрыс анықтады - 2 балл</li>
+                <li>3 типті дұрыс анықтады - 1.5 балл</li>
+                <li>2 типті дұрыс анықтады - 1 балл</li>
+                <li>1 типті дұрыс анықтады - 0.5 балл</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- TASK 2 -->
+          <div class="task-card" id="task2">
+            <div class="task-header">
+              <div class="task-number">2</div>
+              <div class="task-info">
+                <h3>type() функциясы</h3>
+                <span class="task-points">2 балл</span>
+              </div>
+              <div class="task-status" id="status2"></div>
+            </div>
+            <div class="task-body">
+              <p class="task-question">
+                type() функциясының нәтижесін жазыңыз:
+              </p>
+              <div class="code-question">
+                <pre><code>x = [1, 2, 3]
+print(type(x))</code></pre>
+              </div>
+              <div class="answer-input">
+                <label>Нәтиже:</label>
+                <input
+                  type="text"
+                  id="answer2"
+                  placeholder="<class '...'>"
+                  autocomplete="off"
+                />
+              </div>
+              <button class="btn btn-check" onclick="checkTask2()">
+                Тексеру
+              </button>
+              <div class="task-feedback" id="feedback2"></div>
+            </div>
+            <div class="descriptor">
+              <h4>📋 Дескриптор:</h4>
+              <ul>
+                <li>Толық дұрыс жауап - 2 балл</li>
+                <li>Тек "list" деп жазса - 1 балл</li>
+                <li>Қате жауап - 0 балл</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- TASK 3 -->
+          <div class="task-card" id="task3">
+            <div class="task-header">
+              <div class="task-number">3</div>
+              <div class="task-info">
+                <h3>Код жазу</h3>
+                <span class="task-points">2 балл</span>
+              </div>
+              <div class="task-status" id="status3"></div>
+            </div>
+            <div class="task-body">
+              <p class="task-question">
+                Өз есіміңізді сақтайтын айнымалы құрыңыз және оны шығарыңыз:
+              </p>
+              <div class="code-editor">
+                <textarea
+                  id="code3"
+                  rows="4"
+                  placeholder='# Мысалы:
+name = "Сіздің есіміңіз"
+print(name)'
+                ></textarea>
+              </div>
+              <button class="btn btn-check" onclick="checkTask3()">
+                Тексеру
+              </button>
+              <div class="task-feedback" id="feedback3"></div>
+            </div>
+            <div class="descriptor">
+              <h4>📋 Дескриптор:</h4>
+              <ul>
+                <li>Айнымалы құрылған + print() қолданылған - 2 балл</li>
+                <li>Тек айнымалы құрылған - 1 балл</li>
+                <li>Тек print() қолданылған - 1 балл</li>
+                <li>Код жоқ немесе қате - 0 балл</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- TASK 4 -->
+          <div class="task-card" id="task4">
+            <div class="task-header">
+              <div class="task-number">4</div>
+              <div class="task-info">
+                <h3>True немесе False</h3>
+                <span class="task-points">2 балл</span>
+              </div>
+              <div class="task-status" id="status4"></div>
+            </div>
+            <div class="task-body">
+              <p class="task-question">Дұрыс немесе бұрыс екенін анықтаңыз:</p>
+              <div class="true-false-questions">
+                <div class="tf-item">
+                  <span class="tf-statement">1. "123" - бұл int типі</span>
+                  <div
+                    class="tf-buttons"
+                    data-correct="false"
+                    data-question="1"
+                  >
+                    <button class="tf-btn" data-value="true">True</button>
+                    <button class="tf-btn" data-value="false">False</button>
+                  </div>
+                </div>
+                <div class="tf-item">
+                  <span class="tf-statement">2. bool типінің 2 мәні бар</span>
+                  <div class="tf-buttons" data-correct="true" data-question="2">
+                    <button class="tf-btn" data-value="true">True</button>
+                    <button class="tf-btn" data-value="false">False</button>
+                  </div>
+                </div>
+                <div class="tf-item">
+                  <span class="tf-statement">3. 5.0 - бұл int типі</span>
+                  <div
+                    class="tf-buttons"
+                    data-correct="false"
+                    data-question="3"
+                  >
+                    <button class="tf-btn" data-value="true">True</button>
+                    <button class="tf-btn" data-value="false">False</button>
+                  </div>
+                </div>
+                <div class="tf-item">
+                  <span class="tf-statement"
+                    >4. list-те әртүрлі типтер болуы мүмкін</span
+                  >
+                  <div class="tf-buttons" data-correct="true" data-question="4">
+                    <button class="tf-btn" data-value="true">True</button>
+                    <button class="tf-btn" data-value="false">False</button>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-check" onclick="checkTask4()">
+                Тексеру
+              </button>
+              <div class="task-feedback" id="feedback4"></div>
+            </div>
+            <div class="descriptor">
+              <h4>📋 Дескриптор:</h4>
+              <ul>
+                <li>4 дұрыс жауап - 2 балл</li>
+                <li>3 дұрыс жауап - 1.5 балл</li>
+                <li>2 дұрыс жауап - 1 балл</li>
+                <li>1 дұрыс жауап - 0.5 балл</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- TASK 5 -->
+          <div class="task-card" id="task5">
+            <div class="task-header">
+              <div class="task-number">5</div>
+              <div class="task-info">
+                <h3>Шығармашылық тапсырма</h3>
+                <span class="task-points">2 балл</span>
+              </div>
+              <div class="task-status" id="status5"></div>
+            </div>
+            <div class="task-body">
+              <p class="task-question">
+                Өзіңіз туралы бағдарлама жазыңыз. Барлық 5 типті қолданыңыз:
+              </p>
+              <div class="task-hints">
+                <span class="hint">💡 int - жасыңыз</span>
+                <span class="hint">💡 float - бойыңыз</span>
+                <span class="hint">💡 str - есіміңіз</span>
+                <span class="hint">💡 bool - оқушысыз ба</span>
+                <span class="hint">💡 list - хоббилеріңіз</span>
+              </div>
+              <div class="code-editor">
+                <textarea
+                  id="code5"
+                  rows="8"
+                  placeholder='# Мысалы:
+name = "Алмас"
+age = 12
+height = 1.55
+is_student = True
+hobbies = ["футбол", "оқу", "ойын"]
+
+print("Менің есімім:", name)
+# ... және т.б.'
+                ></textarea>
+              </div>
+              <button class="btn btn-check" onclick="checkTask5()">
+                Тексеру
+              </button>
+              <div class="task-feedback" id="feedback5"></div>
+            </div>
+            <div class="descriptor">
+              <h4>📋 Дескриптор:</h4>
+              <ul>
+                <li>5 тип қолданылған + print() бар - 2 балл</li>
+                <li>4 тип қолданылған - 1.5 балл</li>
+                <li>3 тип қолданылған - 1 балл</li>
+                <li>2 тип қолданылған - 0.5 балл</li>
+                <li>1 тип немесе аз - 0 балл</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== RESULTS SECTION ========== -->
+    <section id="results" class="results">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">🏆 НӘТИЖЕ</span>
+          <h2 class="section-title">Сіздің жетістігіңіз</h2>
+        </div>
+
+        <div class="results-panel">
+          <div class="result-circle">
+            <svg class="progress-ring" width="200" height="200">
+              <circle
+                class="progress-ring-circle-bg"
+                cx="100"
+                cy="100"
+                r="85"
+              />
+              <circle
+                class="progress-ring-circle"
+                id="progressCircle"
+                cx="100"
+                cy="100"
+                r="85"
+              />
+            </svg>
+            <div class="result-score">
+              <span class="result-number" id="finalScore">0</span>
+              <span class="result-text">/ 10 балл</span>
+            </div>
+          </div>
+          <div class="result-message" id="resultMessage">
+            Тапсырмаларды орындаңыз!
+          </div>
+          <div class="result-breakdown" id="resultBreakdown">
+            <div class="breakdown-item">
+              <span>Тапсырма 1:</span>
+              <span id="score1">-</span>
+            </div>
+            <div class="breakdown-item">
+              <span>Тапсырма 2:</span>
+              <span id="score2">-</span>
+            </div>
+            <div class="breakdown-item">
+              <span>Тапсырма 3:</span>
+              <span id="score3">-</span>
+            </div>
+            <div class="breakdown-item">
+              <span>Тапсырма 4:</span>
+              <span id="score4">-</span>
+            </div>
+            <div class="breakdown-item">
+              <span>Тапсырма 5:</span>
+              <span id="score5">-</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <span class="footer-logo">🐍 Python Сабағы</span>
+            <p class="footer-tagline">6-сынып • Информатика</p>
+          </div>
+          <div class="footer-teacher">
+            <p>Мұғалім: <strong>Раухат Ағай</strong></p>
+            <p class="footer-note">Жаңа тақырыптар жақында қосылады!</p>
+          </div>
+          <div class="footer-meta">
+            <p>© 2024 • Барлық құқықтар қорғалған</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ========== CONFIG PANEL (for teacher) ========== -->
+    <div class="config-panel" id="configPanel">
+      <button class="config-toggle" id="configToggle">⚙️</button>
+      <div class="config-content" id="configContent">
+        <h4>Мұғалім панелі</h4>
+        <p class="config-hint">
+          Тапсырмаларды өзгерту үшін script.js файлын ашыңыз
+        </p>
+        <div class="config-info">
+          <span>Ағымдағы тақырып:</span>
+          <strong>Деректер типтері</strong>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
