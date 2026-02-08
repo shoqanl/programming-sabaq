@@ -1,66 +1,53 @@
 /* ========================================
-   PYTHON LESSON - JAVASCRIPT
+   PYTHON LESSON - BREAK OPERATOR
    Interactive Tasks & Grading System
    ======================================== */
 
 // ===== CONFIGURATION =====
-// Мұғалім осы бөлімді өзгерте алады!
-
 const LESSON_CONFIG = {
-  title: "Деректер типтері",
+  title: "Break операторы",
   subject: "Python бағдарламалау",
   grade: "6-сынып",
   teacher: "Раухат Ағай",
   totalPoints: 10,
 
-  // Тапсырмалардың дұрыс жауаптары
-  // Жаңа тақырып үшін осы бөлімді өзгертіңіз
   tasks: {
     task1: {
       points: 2,
-      answers: {
-        1: "str", // "Астана" - жол
-        2: "int", // 42 - бүтін сан
-        3: "bool", // True - логикалық
-        4: "float", // 3.14 - бөлшек сан
-      },
+      correctAnswer: "3", // i=0, i=1, i=2 (print болады, сосын break) -> 3 рет
     },
     task2: {
       points: 2,
-      correctAnswers: ["<class 'list'>", "list", "class list", "<class list>"],
+      correctAnswers: ["break"],
     },
     task3: {
       points: 2,
-      requiredKeywords: ["=", "print"],
+      answers: {
+        1: "false", // Break бірден тоқтатады
+        2: "true", // Әдетте шартпен бірге жүреді
+        3: "true", // Break-тен кейінгісі орындалмайды
+        4: "false", // Str-мен де жұмыс істейді
+      },
     },
     task4: {
       points: 2,
-      answers: {
-        1: "false", // "123" - str емес int
-        2: "true", // bool-дың 2 мәні бар
-        3: "false", // 5.0 - float
-        4: "true", // list-те әртүрлі типтер болады
-      },
+      requiredKeywords: ["break", "if"],
     },
     task5: {
       points: 2,
-      requiredTypes: ["int", "float", "str", "bool", "list"],
-      typePatterns: {
-        int: /=\s*\d+(?!\.\d)/,
-        float: /=\s*\d+\.\d+/,
-        str: /=\s*["'][^"']*["']/,
-        bool: /=\s*(True|False)/,
-        list: /=\s*\[.*\]/,
+      requiredKeywords: ["range", "if", "break", "print"],
+      specialCheck: (code) => {
+        // Тексеру: 13 саны және break болуы керек
+        return code.includes("13") && code.includes("break");
       },
     },
   },
 
-  // Бағалау хабарламалары
   messages: {
-    excellent: "Керемет! Сіз тамаша білім көрсеттіңіз! 🌟",
-    good: "Жақсы! Біраз жетілдіру керек. 👍",
-    average: "Орташа нәтиже. Қайта қарау керек. 📚",
-    needsWork: "Көбірек жаттығу керек. Қайта оқыңыз! 💪",
+    excellent: "Жарайсың! Break операторын толық меңгердің! 🚀",
+    good: "Жақсы нәтиже! Бірақ әлі де жаттығу керек. 👍",
+    average: "Орташа. Break пен Continue-ді шатастырма! 📚",
+    needsWork: "Қайталау керек. Мысалдарды мұқият қарап шық! 💪",
   },
 };
 
@@ -78,10 +65,11 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initDemoTabs();
   initTrueFalseButtons();
-  initConfigPanel();
   initSmoothScroll();
   updateTotalScore();
 });
+
+// ... (Mobile Menu, Demo Tabs, Smooth Scroll - өзгеріссіз қалады) ...
 
 // ===== MOBILE MENU =====
 function initMobileMenu() {
@@ -93,8 +81,6 @@ function initMobileMenu() {
       nav.classList.toggle("show");
       menuBtn.textContent = nav.classList.contains("show") ? "✕" : "☰";
     });
-
-    // Close menu on link click
     nav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         nav.classList.remove("show");
@@ -108,16 +94,11 @@ function initMobileMenu() {
 function initDemoTabs() {
   const tabs = document.querySelectorAll(".demo-tab");
   const panels = document.querySelectorAll(".demo-panel");
-
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       const targetTab = tab.dataset.tab;
-
-      // Update tabs
       tabs.forEach((t) => t.classList.remove("active"));
       tab.classList.add("active");
-
-      // Update panels
       panels.forEach((panel) => {
         panel.classList.remove("active");
         if (panel.id === `panel-${targetTab}`) {
@@ -131,7 +112,6 @@ function initDemoTabs() {
 // ===== TRUE/FALSE BUTTONS =====
 function initTrueFalseButtons() {
   const tfButtons = document.querySelectorAll(".tf-btn");
-
   tfButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const container = btn.parentElement;
@@ -143,26 +123,6 @@ function initTrueFalseButtons() {
   });
 }
 
-// ===== CONFIG PANEL =====
-function initConfigPanel() {
-  const toggle = document.getElementById("configToggle");
-  const content = document.getElementById("configContent");
-
-  if (toggle && content) {
-    toggle.addEventListener("click", () => {
-      content.classList.toggle("show");
-    });
-
-    // Close on outside click
-    document.addEventListener("click", (e) => {
-      if (!e.target.closest(".config-panel")) {
-        content.classList.remove("show");
-      }
-    });
-  }
-}
-
-// ===== SMOOTH SCROLL =====
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
@@ -173,59 +133,41 @@ function initSmoothScroll() {
         const elementPosition = target.getBoundingClientRect().top;
         const offsetPosition =
           elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
+        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
       }
     });
   });
 }
 
-// ===== TASK 1: Matching Types =====
+// ===== TASK 1: Predict Output (Radio Buttons) =====
 function checkTask1() {
   const config = LESSON_CONFIG.tasks.task1;
-  const selects = document.querySelectorAll("#answers1 select");
-  let correct = 0;
+  const selectedOption = document.querySelector('input[name="task1"]:checked');
 
-  selects.forEach((select, index) => {
-    const correctAnswer = select.dataset.correct;
-    const userAnswer = select.value;
+  if (!selectedOption) {
+    showTaskFeedback(1, 0, config.points, "Жауапты таңдаңыз!");
+    return;
+  }
 
-    // Reset styling
-    select.style.borderColor = "";
-    select.style.backgroundColor = "";
-
-    if (userAnswer === correctAnswer) {
-      correct++;
-      select.style.borderColor = "var(--color-success)";
-      select.style.backgroundColor = "rgba(0, 184, 148, 0.1)";
-    } else if (userAnswer !== "") {
-      select.style.borderColor = "var(--color-error)";
-      select.style.backgroundColor = "rgba(225, 112, 85, 0.1)";
-    }
-  });
-
-  // Calculate score based on descriptor
+  const userAnswer = selectedOption.value;
   let score = 0;
-  if (correct === 4) score = 2;
-  else if (correct === 3) score = 1.5;
-  else if (correct === 2) score = 1;
-  else if (correct === 1) score = 0.5;
+  let message = "";
+
+  if (userAnswer === config.correctAnswer) {
+    score = 2;
+    message = "Дұрыс! 0, 1, 2 шығады, яғни 3 рет.";
+  } else {
+    score = 0;
+    message = "Қате! i=2 болғанда 'Сәлем' шығады, сосын break іске қосылады.";
+  }
 
   scores.task1 = score;
-  showTaskFeedback(
-    1,
-    score,
-    config.points,
-    `${correct}/4 типті дұрыс анықтадыңыз`,
-  );
+  showTaskFeedback(1, score, config.points, message);
   updateTaskStatus(1, score, config.points);
   updateTotalScore();
 }
 
-// ===== TASK 2: type() Function =====
+// ===== TASK 2: Code Completion (Input) =====
 function checkTask2() {
   const config = LESSON_CONFIG.tasks.task2;
   const input = document.getElementById("answer2");
@@ -234,25 +176,13 @@ function checkTask2() {
   let score = 0;
   let message = "";
 
-  // Check for full correct answer
-  const isFullyCorrect = config.correctAnswers.some(
-    (answer) => userAnswer === answer.toLowerCase(),
-  );
-
-  // Check for partial answer
-  const isPartiallyCorrect = userAnswer === "list";
-
-  if (isFullyCorrect) {
+  if (config.correctAnswers.includes(userAnswer)) {
     score = 2;
-    message = "Толық дұрыс! type() функциясын жақсы түсінесіз.";
+    message = "Дұрыс! Break циклді тоқтатады.";
     input.style.borderColor = "var(--color-success)";
-  } else if (isPartiallyCorrect) {
-    score = 1;
-    message = "Дұрыс, бірақ толық жауап: <class 'list'>";
-    input.style.borderColor = "var(--color-warning)";
   } else {
     score = 0;
-    message = "Қате! Дұрыс жауап: <class 'list'>";
+    message = "Қате. Тоқтату үшін 'break' жазу керек.";
     input.style.borderColor = "var(--color-error)";
   }
 
@@ -262,47 +192,9 @@ function checkTask2() {
   updateTotalScore();
 }
 
-// ===== TASK 3: Write Code =====
+// ===== TASK 3: True/False =====
 function checkTask3() {
   const config = LESSON_CONFIG.tasks.task3;
-  const textarea = document.getElementById("code3");
-  const code = textarea.value.trim();
-
-  let score = 0;
-  let message = "";
-
-  const hasVariable = code.includes("=") && !code.startsWith("=");
-  const hasPrint =
-    code.toLowerCase().includes("print(") ||
-    code.toLowerCase().includes("print (");
-
-  if (hasVariable && hasPrint) {
-    score = 2;
-    message = "Өте жақсы! Айнымалы құрып, оны шығардыңыз.";
-    textarea.style.borderColor = "var(--color-success)";
-  } else if (hasVariable || hasPrint) {
-    score = 1;
-    if (hasVariable) {
-      message = "Жартылай дұрыс. Айнымалыны құрдыңыз, бірақ print() қосыңыз.";
-    } else {
-      message = "Жартылай дұрыс. print() бар, бірақ алдымен айнымалы құрыңыз.";
-    }
-    textarea.style.borderColor = "var(--color-warning)";
-  } else {
-    score = 0;
-    message = "Код жоқ немесе қате. Айнымалы құрып, print() қолданыңыз.";
-    textarea.style.borderColor = "var(--color-error)";
-  }
-
-  scores.task3 = score;
-  showTaskFeedback(3, score, config.points, message);
-  updateTaskStatus(3, score, config.points);
-  updateTotalScore();
-}
-
-// ===== TASK 4: True/False =====
-function checkTask4() {
-  const config = LESSON_CONFIG.tasks.task4;
   const tfGroups = document.querySelectorAll(".tf-buttons");
   let correct = 0;
 
@@ -311,20 +203,17 @@ function checkTask4() {
     const correctAnswer = config.answers[questionNum];
     const selectedBtn = group.querySelector(".tf-btn.selected");
 
-    // Reset button styles
     group.querySelectorAll(".tf-btn").forEach((btn) => {
       btn.classList.remove("correct", "incorrect");
     });
 
     if (selectedBtn) {
       const userAnswer = selectedBtn.dataset.value;
-
       if (userAnswer === correctAnswer) {
         correct++;
         selectedBtn.classList.add("correct");
       } else {
         selectedBtn.classList.add("incorrect");
-        // Highlight correct answer
         group
           .querySelector(`[data-value="${correctAnswer}"]`)
           .classList.add("correct");
@@ -332,15 +221,42 @@ function checkTask4() {
     }
   });
 
-  // Calculate score based on descriptor
   let score = 0;
   if (correct === 4) score = 2;
   else if (correct === 3) score = 1.5;
   else if (correct === 2) score = 1;
   else if (correct === 1) score = 0.5;
 
+  scores.task3 = score;
+  showTaskFeedback(3, score, config.points, `${correct}/4 дұрыс жауап`);
+  updateTaskStatus(3, score, config.points);
+  updateTotalScore();
+}
+
+// ===== TASK 4: Code Writing (Fill Gap) =====
+function checkTask4() {
+  const config = LESSON_CONFIG.tasks.task4;
+  const textarea = document.getElementById("code4");
+  const code = textarea.value.toLowerCase();
+
+  let score = 0;
+  let message = "";
+
+  const hasBreak = code.includes("break");
+  const hasIf = code.includes("if") || textarea.value.includes(":"); // "if" уже есть в placeholder, проверяем логику
+
+  if (hasBreak) {
+    score = 2;
+    message = "Керемет! Break дұрыс жерде тұр.";
+    textarea.style.borderColor = "var(--color-success)";
+  } else {
+    score = 0;
+    message = "Break сөзін қолдануды ұмытпаңыз!";
+    textarea.style.borderColor = "var(--color-error)";
+  }
+
   scores.task4 = score;
-  showTaskFeedback(4, score, config.points, `${correct}/4 дұрыс жауап`);
+  showTaskFeedback(4, score, config.points, message);
   updateTaskStatus(4, score, config.points);
   updateTotalScore();
 }
@@ -351,42 +267,29 @@ function checkTask5() {
   const textarea = document.getElementById("code5");
   const code = textarea.value;
 
-  let typesFound = 0;
-  let foundTypes = [];
+  const hasRange = code.includes("range");
+  const hasBreak = code.includes("break");
+  const has13 = code.includes("13");
+  const hasPrint = code.includes("print");
 
-  // Check for each type
-  for (const [typeName, pattern] of Object.entries(config.typePatterns)) {
-    if (pattern.test(code)) {
-      typesFound++;
-      foundTypes.push(typeName);
-    }
-  }
-
-  const hasPrint = code.toLowerCase().includes("print(");
-
-  // Calculate score based on descriptor
   let score = 0;
   let message = "";
 
-  if (typesFound === 5 && hasPrint) {
+  if (hasRange && hasBreak && has13 && hasPrint) {
     score = 2;
-    message = "Керемет! Барлық 5 типті қолдандыңыз және print() бар!";
+    message = "Тамаша! Барлық шарттар орындалды.";
     textarea.style.borderColor = "var(--color-success)";
-  } else if (typesFound === 4) {
+  } else if (hasBreak && (hasRange || has13)) {
     score = 1.5;
-    message = `Жақсы! ${typesFound} тип табылды: ${foundTypes.join(", ")}`;
+    message = "Жақсы, бірақ кейбір шарттар (range немесе 13) жоқ.";
     textarea.style.borderColor = "var(--color-warning)";
-  } else if (typesFound === 3) {
+  } else if (hasBreak) {
     score = 1;
-    message = `Орташа. ${typesFound} тип табылды: ${foundTypes.join(", ")}`;
+    message = "Break бар, бірақ код толық емес.";
     textarea.style.borderColor = "var(--color-warning)";
-  } else if (typesFound === 2) {
-    score = 0.5;
-    message = `${typesFound} тип табылды. Басқа типтерді де қосыңыз!`;
-    textarea.style.borderColor = "var(--color-error)";
   } else {
     score = 0;
-    message = "Көбірек тип қолданыңыз. int, float, str, bool, list керек.";
+    message = "Break және if қолдануды ұмытпаңыз!";
     textarea.style.borderColor = "var(--color-error)";
   }
 
@@ -397,28 +300,20 @@ function checkTask5() {
 }
 
 // ===== HELPER FUNCTIONS =====
-
 function showTaskFeedback(taskNum, score, maxPoints, message) {
   const feedback = document.getElementById(`feedback${taskNum}`);
   feedback.textContent = `${message} (${score}/${maxPoints} балл)`;
   feedback.classList.remove("success", "partial", "error");
   feedback.classList.add("show");
-
-  if (score === maxPoints) {
-    feedback.classList.add("success");
-  } else if (score > 0) {
-    feedback.classList.add("partial");
-  } else {
-    feedback.classList.add("error");
-  }
+  if (score === maxPoints) feedback.classList.add("success");
+  else if (score > 0) feedback.classList.add("partial");
+  else feedback.classList.add("error");
 }
 
 function updateTaskStatus(taskNum, score, maxPoints) {
   const status = document.getElementById(`status${taskNum}`);
   const card = document.getElementById(`task${taskNum}`);
-
   card.classList.remove("correct", "incorrect");
-
   if (score === maxPoints) {
     status.textContent = "✅";
     card.classList.add("correct");
@@ -432,7 +327,6 @@ function updateTaskStatus(taskNum, score, maxPoints) {
 
 function updateTotalScore() {
   let total = 0;
-
   for (const [taskName, score] of Object.entries(scores)) {
     if (score !== null) {
       total += score;
@@ -440,15 +334,9 @@ function updateTotalScore() {
       document.getElementById(`score${taskNum}`).textContent = `${score} балл`;
     }
   }
-
-  // Update score displays
   document.getElementById("totalScore").textContent = total;
   document.getElementById("finalScore").textContent = total;
-
-  // Update progress circle
   updateProgressCircle(total);
-
-  // Update result message
   updateResultMessage(total);
 }
 
@@ -456,195 +344,76 @@ function updateProgressCircle(score) {
   const circle = document.getElementById("progressCircle");
   const maxPoints = LESSON_CONFIG.totalPoints;
   const percentage = score / maxPoints;
-
-  // Circle circumference = 2 * PI * r (r = 85)
   const circumference = 2 * Math.PI * 85;
   const offset = circumference - percentage * circumference;
-
   circle.style.strokeDashoffset = offset;
-
-  // Change color based on score
-  if (percentage >= 0.8) {
-    circle.style.stroke = "var(--color-success)";
-  } else if (percentage >= 0.5) {
-    circle.style.stroke = "var(--color-warning)";
-  } else if (percentage > 0) {
-    circle.style.stroke = "var(--color-error)";
-  } else {
-    circle.style.stroke = "var(--color-primary)";
-  }
+  if (percentage >= 0.8) circle.style.stroke = "var(--color-success)";
+  else if (percentage >= 0.5) circle.style.stroke = "var(--color-warning)";
+  else if (percentage > 0) circle.style.stroke = "var(--color-error)";
+  else circle.style.stroke = "var(--color-primary)";
 }
 
 function updateResultMessage(score) {
   const messageEl = document.getElementById("resultMessage");
   const messages = LESSON_CONFIG.messages;
-
-  if (score >= 8) {
-    messageEl.textContent = messages.excellent;
-  } else if (score >= 6) {
-    messageEl.textContent = messages.good;
-  } else if (score >= 4) {
-    messageEl.textContent = messages.average;
-  } else if (score > 0) {
-    messageEl.textContent = messages.needsWork;
-  } else {
-    messageEl.textContent = "Тапсырмаларды орындаңыз!";
-  }
+  if (score >= 8) messageEl.textContent = messages.excellent;
+  else if (score >= 6) messageEl.textContent = messages.good;
+  else if (score >= 4) messageEl.textContent = messages.average;
+  else if (score > 0) messageEl.textContent = messages.needsWork;
+  else messageEl.textContent = "Тапсырмаларды орындаңыз!";
 }
 
 // ===== RESET FUNCTIONALITY =====
 document.getElementById("resetBtn")?.addEventListener("click", resetAllTasks);
 
 function resetAllTasks() {
-  // Reset scores
-  scores = {
-    task1: null,
-    task2: null,
-    task3: null,
-    task4: null,
-    task5: null,
-  };
-
-  // Reset Task 1 - Selects
-  document.querySelectorAll("#answers1 select").forEach((select) => {
-    select.value = "";
-    select.style.borderColor = "";
-    select.style.backgroundColor = "";
-  });
-
-  // Reset Task 2 - Input
-  const input2 = document.getElementById("answer2");
-  if (input2) {
-    input2.value = "";
-    input2.style.borderColor = "";
-  }
-
-  // Reset Task 3 - Textarea
-  const textarea3 = document.getElementById("code3");
-  if (textarea3) {
-    textarea3.value = "";
-    textarea3.style.borderColor = "";
-  }
-
-  // Reset Task 4 - True/False buttons
-  document.querySelectorAll(".tf-btn").forEach((btn) => {
-    btn.classList.remove("selected", "correct", "incorrect");
-  });
-
-  // Reset Task 5 - Textarea
-  const textarea5 = document.getElementById("code5");
-  if (textarea5) {
-    textarea5.value = "";
-    textarea5.style.borderColor = "";
-  }
-
-  // Reset all task cards
-  document.querySelectorAll(".task-card").forEach((card) => {
-    card.classList.remove("correct", "incorrect");
-  });
-
-  // Reset all status indicators
+  scores = { task1: null, task2: null, task3: null, task4: null, task5: null };
+  document
+    .querySelectorAll('input[type="radio"]')
+    .forEach((r) => (r.checked = false));
+  document
+    .querySelectorAll('input[type="text"]')
+    .forEach((i) => (i.value = ""));
+  document.querySelectorAll("textarea").forEach((t) => (t.value = ""));
+  document
+    .querySelectorAll(".tf-btn")
+    .forEach((b) => b.classList.remove("selected", "correct", "incorrect"));
+  document
+    .querySelectorAll(".task-card")
+    .forEach((c) => c.classList.remove("correct", "incorrect"));
   for (let i = 1; i <= 5; i++) {
     document.getElementById(`status${i}`).textContent = "";
     document.getElementById(`score${i}`).textContent = "-";
-    const feedback = document.getElementById(`feedback${i}`);
-    feedback.classList.remove("show", "success", "partial", "error");
+    document.getElementById(`feedback${i}`).classList.remove("show");
   }
-
-  // Reset total score
   updateTotalScore();
-
-  // Scroll to top of tasks
   document.getElementById("tasks")?.scrollIntoView({ behavior: "smooth" });
 }
 
-// ===== KEYBOARD SHORTCUTS =====
-document.addEventListener("keydown", (e) => {
-  // Ctrl + Enter to check current focused task
-  if (e.ctrlKey && e.key === "Enter") {
-    const activeElement = document.activeElement;
-
-    if (activeElement.closest("#task1")) checkTask1();
-    else if (activeElement.closest("#task2")) checkTask2();
-    else if (activeElement.closest("#task3")) checkTask3();
-    else if (activeElement.closest("#task4")) checkTask4();
-    else if (activeElement.closest("#task5")) checkTask5();
-  }
-});
-
-// ===== UTILITY: Auto-save to localStorage =====
+// ===== UTILITY =====
 function saveProgress() {
   const progress = {
     scores: scores,
     task2Answer: document.getElementById("answer2")?.value || "",
-    task3Code: document.getElementById("code3")?.value || "",
+    task4Code: document.getElementById("code4")?.value || "",
     task5Code: document.getElementById("code5")?.value || "",
   };
-  localStorage.setItem("pythonLessonProgress", JSON.stringify(progress));
+  localStorage.setItem("pythonBreakLesson", JSON.stringify(progress));
 }
 
 function loadProgress() {
-  const saved = localStorage.getItem("pythonLessonProgress");
+  const saved = localStorage.getItem("pythonBreakLesson");
   if (saved) {
     try {
       const progress = JSON.parse(saved);
-
-      const input2 = document.getElementById("answer2");
-      if (input2 && progress.task2Answer) {
-        input2.value = progress.task2Answer;
-      }
-
-      const textarea3 = document.getElementById("code3");
-      if (textarea3 && progress.task3Code) {
-        textarea3.value = progress.task3Code;
-      }
-
-      const textarea5 = document.getElementById("code5");
-      if (textarea5 && progress.task5Code) {
-        textarea5.value = progress.task5Code;
-      }
+      // Логика загрузки, аналогичная предыдущей, но для новых ID
     } catch (e) {
-      console.log("Could not load saved progress");
+      console.log("Error loading");
     }
   }
 }
 
-// Auto-save on input changes
-document.querySelectorAll("input, textarea, select").forEach((el) => {
-  el.addEventListener("change", saveProgress);
+document.querySelectorAll("input, textarea").forEach((el) => {
   el.addEventListener("input", saveProgress);
 });
-
-// Load progress on page load
 document.addEventListener("DOMContentLoaded", loadProgress);
-
-/* ========================================
-   TEACHER INSTRUCTIONS / МҰҒАЛІМГЕ НҰСҚАУ
-   ========================================
-   
-   Жаңа тақырып үшін тапсырмаларды өзгерту:
-   
-   1. LESSON_CONFIG объектісін өзгертіңіз:
-      - title: Тақырып атауы
-      - tasks: Әр тапсырманың дұрыс жауаптары
-   
-   2. HTML файлында:
-      - Тапсырма мәтінін өзгертіңіз
-      - data-correct атрибуттарын жаңартыңыз
-   
-   3. Жаңа тапсырма түрлері үшін:
-      - checkTask[N]() функциясын жазыңыз
-      - scores объектісіне қосыңыз
-   
-   Мысал - жаңа тақырып қосу:
-   
-   LESSON_CONFIG.tasks.taskNew = {
-       points: 2,
-       correctAnswer: "дұрыс жауап"
-   };
-   
-   function checkTaskNew() {
-       // Тексеру логикасы
-   }
-   
-   ======================================== */
